@@ -1,0 +1,12 @@
+﻿Console.WriteLine("==================================");
+Console.WriteLine("Обычный бутерброд");
+Console.WriteLine("==================================");
+Console.WriteLine(" ");
+Console.WriteLine("ингредиенты:");
+Console.WriteLine("Колбаса");
+Console.WriteLine("Сыр");
+Console.WriteLine("Хлеб");
+Console.WriteLine(" ");
+Console.WriteLine("Приготовление:");
+Console.WriteLine("Нарезать все ингредиенты");
+Console.WriteLine("Положить колбасу на хлеб и сыр на колбасу");
