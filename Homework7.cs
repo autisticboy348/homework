@@ -20,15 +20,15 @@ class Program
     static void Main(string[] args)
     {
         Rectangle rect1 = new Rectangle();
-        rect1.Width = 5.0;
-        rect1.Height = 3.0;
+        rect1.Width = 10.0;
+        rect1.Height = 5.0;
 
         double area1 = rect1.GetArea();
         double perimeter1 = rect1.GetPerimeter();
 
         Rectangle rect2 = new Rectangle();
         rect2.Width = 7.5;
-        rect2.Height = 4.2;
+        rect2.Height = 3.2;
 
         double area2 = rect2.GetArea();
         double perimeter2 = rect2.GetPerimeter();
@@ -62,3 +62,4 @@ class Program
         Console.WriteLine();
     }
 }
+
