@@ -5,7 +5,7 @@ class Program
     public static void Main(string[] args)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("You wake up in forest");
+        Console.WriteLine("You wake up in forest (press enter)");
         Console.ReadKey();
         Console.Clear();
 
@@ -129,4 +129,5 @@ class Program
             }
         }
     }
+
 }
