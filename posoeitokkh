@@ -1,0 +1,2263 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("       КУРС C# — ВСЕ 8 ЗАНЯТИЙ");
+            Console.WriteLine("======================================");
+            Console.WriteLine("1. Занятие 1 — Переменные и типы данных");
+            Console.WriteLine("2. Занятие 2 — Условия и циклы");
+            Console.WriteLine("3. Занятие 3 — Массивы и строки");
+            Console.WriteLine("4. Занятие 4 — Методы");
+            Console.WriteLine("5. Занятие 5 — Классы и объекты");
+            Console.WriteLine("6. Занятие 6 — List<T>");
+            Console.WriteLine("7. Занятие 7 — Работа с файлами");
+            Console.WriteLine("8. Занятие 8 — Финальный проект");
+            Console.WriteLine("0. Выход");
+            Console.WriteLine("======================================");
+            Console.Write("Выберите занятие: ");
+
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Lesson1Variables.Run();
+                    break;
+
+                case "2":
+                    Lesson2Conditions.Run();
+                    break;
+
+                case "3":
+                    Lesson3Arrays.Run();
+                    break;
+
+                case "4":
+                    Lesson4Methods.Run();
+                    break;
+
+                case "5":
+                    Lesson5Classes.Run();
+                    break;
+
+                case "6":
+                    Lesson6Lists.Run();
+                    break;
+
+                case "7":
+                    Lesson7Files.Run();
+                    break;
+
+                case "8":
+                    Lesson8FinalProject.Run();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Нажмите Enter, чтобы вернуться в главное меню...");
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 1 — ПЕРЕМЕННЫЕ И ТИПЫ ДАННЫХ
+// ============================================================
+
+class Lesson1Variables
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 1 — ПЕРЕМЕННЫЕ И ТИПЫ ДАННЫХ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Вывести имя и возраст");
+            Console.WriteLine("2. Разные типы данных");
+            Console.WriteLine("3. Ввод данных");
+            Console.WriteLine("4. Арифметические операции");
+            Console.WriteLine("5. Обмен значений переменных");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void Task1()
+    {
+        string name = "Alex";
+        int age = 18;
+
+        Console.WriteLine("Имя: " + name);
+        Console.WriteLine("Возраст: " + age);
+    }
+
+    static void Task2()
+    {
+        int age = 18;
+        double height = 1.80;
+        string name = "Alex";
+        bool isStudent = true;
+        char grade = 'A';
+
+        Console.WriteLine("int: " + age);
+        Console.WriteLine("double: " + height);
+        Console.WriteLine("string: " + name);
+        Console.WriteLine("bool: " + isStudent);
+        Console.WriteLine("char: " + grade);
+    }
+
+    static void Task3()
+    {
+        Console.Write("Введите имя: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Введите возраст: ");
+        int age = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Привет, " + name + "!");
+        Console.WriteLine("Тебе " + age + " лет.");
+    }
+
+    static void Task4()
+    {
+        Console.Write("Введите первое число: ");
+        double a = double.Parse(Console.ReadLine());
+
+        Console.Write("Введите второе число: ");
+        double b = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Сложение: " + (a + b));
+        Console.WriteLine("Вычитание: " + (a - b));
+        Console.WriteLine("Умножение: " + (a * b));
+
+        if (b != 0)
+        {
+            Console.WriteLine("Деление: " + (a / b));
+        }
+        else
+        {
+            Console.WriteLine("На ноль делить нельзя.");
+        }
+    }
+
+    static void Task5()
+    {
+        Console.Write("Введите a: ");
+        int a = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите b: ");
+        int b = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("До обмена:");
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        Console.WriteLine("После обмена:");
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 2 — УСЛОВИЯ И ЦИКЛЫ
+// ============================================================
+
+class Lesson2Conditions
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 2 — УСЛОВИЯ И ЦИКЛЫ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Проверка числа");
+            Console.WriteLine("2. Проверка возраста");
+            Console.WriteLine("3. Оценка через if");
+            Console.WriteLine("4. Оценка через switch");
+            Console.WriteLine("5. Таблица умножения");
+            Console.WriteLine("6. Сумма чисел от 1 до N");
+            Console.WriteLine("7. Чётные числа");
+            Console.WriteLine("8. Факториал");
+            Console.WriteLine("9. Бонус — числа Фибоначчи");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3If();
+                    break;
+
+                case "4":
+                    Task3Switch();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "6":
+                    Task6();
+                    break;
+
+                case "7":
+                    Task7();
+                    break;
+
+                case "8":
+                    Task8();
+                    break;
+
+                case "9":
+                    BonusFibonacci();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void Task1()
+    {
+        Console.Write("Введите число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (number > 0)
+            Console.WriteLine("Число положительное.");
+        else if (number < 0)
+            Console.WriteLine("Число отрицательное.");
+        else
+            Console.WriteLine("Число равно нулю.");
+    }
+
+    static void Task2()
+    {
+        Console.Write("Введите возраст: ");
+        int age = int.Parse(Console.ReadLine());
+
+        if (age >= 18)
+            Console.WriteLine("Доступ разрешён.");
+        else
+            Console.WriteLine("Доступ запрещён.");
+    }
+
+    static void Task3If()
+    {
+        Console.Write("Введите балл от 0 до 100: ");
+        int score = int.Parse(Console.ReadLine());
+
+        if (score >= 90)
+            Console.WriteLine("Оценка: 5");
+        else if (score >= 75)
+            Console.WriteLine("Оценка: 4");
+        else if (score >= 60)
+            Console.WriteLine("Оценка: 3");
+        else
+            Console.WriteLine("Оценка: 2");
+    }
+
+    static void Task3Switch()
+    {
+        Console.Write("Введите оценку от 1 до 5: ");
+        int grade = int.Parse(Console.ReadLine());
+
+        switch (grade)
+        {
+            case 5:
+                Console.WriteLine("Отлично!");
+                break;
+
+            case 4:
+                Console.WriteLine("Хорошо!");
+                break;
+
+            case 3:
+                Console.WriteLine("Удовлетворительно.");
+                break;
+
+            case 2:
+                Console.WriteLine("Неудовлетворительно.");
+                break;
+
+            default:
+                Console.WriteLine("Некорректная оценка.");
+                break;
+        }
+    }
+
+    static void Task5()
+    {
+        Console.Write("Введите число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine(number + " * " + i + " = " + (number * i));
+        }
+    }
+
+    static void Task6()
+    {
+        Console.Write("Введите N: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int sum = 0;
+
+        for (int i = 1; i <= n; i++)
+        {
+            sum += i;
+        }
+
+        Console.WriteLine("Сумма: " + sum);
+    }
+
+    static void Task7()
+    {
+        Console.Write("Введите N: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Чётные числа:");
+
+        for (int i = 2; i <= n; i += 2)
+        {
+            Console.WriteLine(i);
+        }
+    }
+
+    static void Task8()
+    {
+        Console.Write("Введите число: ");
+        int n = int.Parse(Console.ReadLine());
+
+        long factorial = 1;
+
+        for (int i = 1; i <= n; i++)
+        {
+            factorial *= i;
+        }
+
+        Console.WriteLine("Факториал: " + factorial);
+    }
+
+    static void BonusFibonacci()
+    {
+        int a = 0;
+        int b = 1;
+
+        Console.WriteLine("Первые 15 чисел Фибоначчи:");
+
+        for (int i = 0; i < 15; i++)
+        {
+            Console.Write(a + " ");
+
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+
+        Console.WriteLine();
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 3 — МАССИВЫ И СТРОКИ
+// ============================================================
+
+class Lesson3Arrays
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 3 — МАССИВЫ И СТРОКИ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Создание массива");
+            Console.WriteLine("2. Сумма элементов массива");
+            Console.WriteLine("3. Максимальный элемент");
+            Console.WriteLine("4. Минимальный элемент");
+            Console.WriteLine("5. Среднее значение");
+            Console.WriteLine("6. Работа со строкой");
+            Console.WriteLine("7. Разворот строки");
+            Console.WriteLine("8. Подсчёт символов");
+            Console.WriteLine("9. Бонус — доска крестиков-ноликов");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "6":
+                    Task6();
+                    break;
+
+                case "7":
+                    Task7();
+                    break;
+
+                case "8":
+                    Task8();
+                    break;
+
+                case "9":
+                    BonusTicTacToe();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static int[] ReadArray()
+    {
+        Console.Write("Введите количество элементов: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("array[" + i + "] = ");
+            array[i] = int.Parse(Console.ReadLine());
+        }
+
+        return array;
+    }
+
+    static void Task1()
+    {
+        int[] numbers = ReadArray();
+
+        Console.WriteLine("Массив:");
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write(numbers[i] + " ");
+        }
+
+        Console.WriteLine();
+    }
+
+    static void Task2()
+    {
+        int[] numbers = ReadArray();
+
+        int sum = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            sum += numbers[i];
+        }
+
+        Console.WriteLine("Сумма: " + sum);
+    }
+
+    static void Task3()
+    {
+        int[] numbers = ReadArray();
+
+        int max = numbers[0];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > max)
+                max = numbers[i];
+        }
+
+        Console.WriteLine("Максимум: " + max);
+    }
+
+    static void Task4()
+    {
+        int[] numbers = ReadArray();
+
+        int min = numbers[0];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] < min)
+                min = numbers[i];
+        }
+
+        Console.WriteLine("Минимум: " + min);
+    }
+
+    static void Task5()
+    {
+        int[] numbers = ReadArray();
+
+        int sum = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            sum += numbers[i];
+        }
+
+        double average = (double)sum / numbers.Length;
+
+        Console.WriteLine("Среднее значение: " + average);
+    }
+
+    static void Task6()
+    {
+        Console.Write("Введите строку: ");
+        string text = Console.ReadLine();
+
+        Console.WriteLine("Длина строки: " + text.Length);
+        Console.WriteLine("Верхний регистр: " + text.ToUpper());
+        Console.WriteLine("Нижний регистр: " + text.ToLower());
+    }
+
+    static void Task7()
+    {
+        Console.Write("Введите строку: ");
+        string text = Console.ReadLine();
+
+        char[] chars = text.ToCharArray();
+        Array.Reverse(chars);
+
+        string reversed = new string(chars);
+
+        Console.WriteLine("Перевёрнутая строка: " + reversed);
+    }
+
+    static void Task8()
+    {
+        Console.Write("Введите строку: ");
+        string text = Console.ReadLine();
+
+        Console.Write("Введите символ: ");
+        char symbol = char.Parse(Console.ReadLine());
+
+        int count = 0;
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (text[i] == symbol)
+                count++;
+        }
+
+        Console.WriteLine("Количество символов: " + count);
+    }
+
+    static void BonusTicTacToe()
+    {
+        char[,] board =
+        {
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' }
+        };
+
+        Console.WriteLine("Доска:");
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine(" " + board[i, 0] + " | " + board[i, 1] + " | " + board[i, 2]);
+
+            if (i < 2)
+                Console.WriteLine("---+---+---");
+        }
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 4 — МЕТОДЫ
+// ============================================================
+
+class Lesson4Methods
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 4 — МЕТОДЫ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Приветствие");
+            Console.WriteLine("2. Вывод прямоугольника");
+            Console.WriteLine("3. Сумма двух чисел");
+            Console.WriteLine("4. Проверка на чётность");
+            Console.WriteLine("5. Проверка на простое число");
+            Console.WriteLine("6. Поиск максимума");
+            Console.WriteLine("7. Среднее значение");
+            Console.WriteLine("8. Перегрузка метода Max");
+            Console.WriteLine("9. Рекурсивный факториал");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "6":
+                    Task6();
+                    break;
+
+                case "7":
+                    Task7();
+                    break;
+
+                case "8":
+                    Task8();
+                    break;
+
+                case "9":
+                    Task9();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void PrintWelcome()
+    {
+        Console.WriteLine("Добро пожаловать!");
+    }
+
+    static void PrintRectangle(int width, int height)
+    {
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                Console.Write("* ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    static int Sum(int a, int b)
+    {
+        return a + b;
+    }
+
+    static bool IsEven(int number)
+    {
+        return number % 2 == 0;
+    }
+
+    static bool IsPrime(int number)
+    {
+        if (number < 2)
+            return false;
+
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0)
+                return false;
+        }
+
+        return true;
+    }
+
+    static int FindMax(int[] numbers)
+    {
+        int max = numbers[0];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > max)
+                max = numbers[i];
+        }
+
+        return max;
+    }
+
+    static double GetAverage(int[] numbers)
+    {
+        int sum = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            sum += numbers[i];
+        }
+
+        return (double)sum / numbers.Length;
+    }
+
+    static int Max(int a, int b)
+    {
+        return a > b ? a : b;
+    }
+
+    static double Max(double a, double b)
+    {
+        return a > b ? a : b;
+    }
+
+    static void PrintLine()
+    {
+        Console.WriteLine("------------------------------");
+    }
+
+    static long Factorial(int number)
+    {
+        if (number <= 1)
+            return 1;
+
+        return number * Factorial(number - 1);
+    }
+
+    static void Task1()
+    {
+        PrintWelcome();
+    }
+
+    static void Task2()
+    {
+        Console.Write("Ширина: ");
+        int width = int.Parse(Console.ReadLine());
+
+        Console.Write("Высота: ");
+        int height = int.Parse(Console.ReadLine());
+
+        PrintRectangle(width, height);
+    }
+
+    static void Task3()
+    {
+        Console.Write("a = ");
+        int a = int.Parse(Console.ReadLine());
+
+        Console.Write("b = ");
+        int b = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Сумма: " + Sum(a, b));
+    }
+
+    static void Task4()
+    {
+        Console.Write("Введите число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (IsEven(number))
+            Console.WriteLine("Число чётное.");
+        else
+            Console.WriteLine("Число нечётное.");
+    }
+
+    static void Task5()
+    {
+        Console.Write("Введите число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (IsPrime(number))
+            Console.WriteLine("Число простое.");
+        else
+            Console.WriteLine("Число не является простым.");
+    }
+
+    static void Task6()
+    {
+        int[] numbers = { 5, 8, 2, 10, 3 };
+
+        Console.WriteLine("Максимум: " + FindMax(numbers));
+    }
+
+    static void Task7()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        Console.WriteLine("Среднее: " + GetAverage(numbers));
+    }
+
+    static void Task8()
+    {
+        Console.WriteLine("Max(int): " + Max(10, 20));
+        Console.WriteLine("Max(double): " + Max(10.5, 5.3));
+    }
+
+    static void Task9()
+    {
+        Console.Write("Введите число: ");
+        int number = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Факториал: " + Factorial(number));
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 5 — КЛАССЫ И ОБЪЕКТЫ
+// ============================================================
+
+class Lesson5Classes
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 5 — КЛАССЫ И ОБЪЕКТЫ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Класс Person");
+            Console.WriteLine("2. Класс Rectangle");
+            Console.WriteLine("3. Класс BankAccount");
+            Console.WriteLine("4. Перевод между счетами");
+            Console.WriteLine("5. Класс Student");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void Task1()
+    {
+        Person person = new Person();
+
+        person.Name = "Alex";
+        person.Age = 20;
+
+        person.Introduce();
+    }
+
+    static void Task2()
+    {
+        RectangleModel rectangle = new RectangleModel();
+
+        rectangle.Width = 10;
+        rectangle.Height = 5;
+
+        Console.WriteLine("Площадь: " + rectangle.GetArea());
+        Console.WriteLine("Периметр: " + rectangle.GetPerimeter());
+    }
+
+    static void Task3()
+    {
+        BankAccount account = new BankAccount();
+
+        account.Owner = "Alex";
+        account.Balance = 1000;
+
+        account.ShowBalance();
+
+        account.Deposit(500);
+        account.Withdraw(200);
+
+        account.ShowBalance();
+    }
+
+    static void Task4()
+    {
+        BankAccount first = new BankAccount();
+        first.Owner = "Alex";
+        first.Balance = 1000;
+
+        BankAccount second = new BankAccount();
+        second.Owner = "Bob";
+        second.Balance = 500;
+
+        Console.WriteLine("До перевода:");
+        first.ShowBalance();
+        second.ShowBalance();
+
+        first.TransferTo(second, 300);
+
+        Console.WriteLine();
+        Console.WriteLine("После перевода:");
+
+        first.ShowBalance();
+        second.ShowBalance();
+    }
+
+    static void Task5()
+    {
+        Student student = new Student();
+
+        student.Name = "Alex";
+        student.Age = 20;
+        student.Grade = 4.7;
+
+        student.ShowInfo();
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ------------------------------------------------------------
+// Класс Person
+// ------------------------------------------------------------
+
+class Person
+{
+    public string Name;
+    public int Age;
+
+    public void Introduce()
+    {
+        Console.WriteLine("Меня зовут " + Name);
+        Console.WriteLine("Мне " + Age + " лет.");
+    }
+}
+
+
+// ------------------------------------------------------------
+// Класс Rectangle
+// ------------------------------------------------------------
+
+class RectangleModel
+{
+    public double Width;
+    public double Height;
+
+    public double GetArea()
+    {
+        return Width * Height;
+    }
+
+    public double GetPerimeter()
+    {
+        return 2 * (Width + Height);
+    }
+}
+
+
+// ------------------------------------------------------------
+// Класс BankAccount
+// ------------------------------------------------------------
+
+class BankAccount
+{
+    public string Owner;
+    public double Balance;
+
+    public void Deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            Balance += amount;
+            Console.WriteLine("Пополнение: " + amount);
+        }
+    }
+
+    public void Withdraw(double amount)
+    {
+        if (amount <= 0)
+            return;
+
+        if (amount <= Balance)
+        {
+            Balance -= amount;
+            Console.WriteLine("Снятие: " + amount);
+        }
+        else
+        {
+            Console.WriteLine("Недостаточно средств.");
+        }
+    }
+
+    public void TransferTo(BankAccount target, double amount)
+    {
+        if (amount <= 0)
+            return;
+
+        if (amount <= Balance)
+        {
+            Balance -= amount;
+            target.Balance += amount;
+
+            Console.WriteLine(
+                "Перевод " + amount +
+                " от " + Owner +
+                " к " + target.Owner
+            );
+        }
+        else
+        {
+            Console.WriteLine("Недостаточно средств.");
+        }
+    }
+
+    public void ShowBalance()
+    {
+        Console.WriteLine(
+            "Владелец: " + Owner +
+            ", баланс: " + Balance
+        );
+    }
+}
+
+
+// ------------------------------------------------------------
+// Класс Student
+// ------------------------------------------------------------
+
+class Student
+{
+    public string Name;
+    public int Age;
+    public double Grade;
+
+    public void ShowInfo()
+    {
+        Console.WriteLine("Имя: " + Name);
+        Console.WriteLine("Возраст: " + Age);
+        Console.WriteLine("Средний балл: " + Grade);
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 6 — LIST<T>
+// ============================================================
+
+class Lesson6Lists
+{
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 6 — LIST<T>");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Список имён");
+            Console.WriteLine("2. Список людей");
+            Console.WriteLine("3. Поиск человека");
+            Console.WriteLine("4. Удаление элемента");
+            Console.WriteLine("5. Подсчёт совершеннолетних");
+            Console.WriteLine("6. Фильтрация совершеннолетних");
+            Console.WriteLine("7. Сортировка пузырьком");
+            Console.WriteLine("8. Записная книжка");
+            Console.WriteLine("9. Бонус — Dictionary");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "6":
+                    Task6();
+                    break;
+
+                case "7":
+                    Task7();
+                    break;
+
+                case "8":
+                    Task8();
+                    break;
+
+                case "9":
+                    BonusDictionary();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    // Задание 1
+    static void Task1()
+    {
+        List<string> names = new List<string>();
+
+        names.Add("Alex");
+        names.Add("Bob");
+        names.Add("Anna");
+        names.Add("Kate");
+
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+    }
+
+    // Задание 2
+    static void Task2()
+    {
+        List<Person> people = new List<Person>();
+
+        people.Add(new Person
+        {
+            Name = "Alex",
+            Age = 20
+        });
+
+        people.Add(new Person
+        {
+            Name = "Bob",
+            Age = 17
+        });
+
+        people.Add(new Person
+        {
+            Name = "Anna",
+            Age = 25
+        });
+
+        foreach (Person person in people)
+        {
+            person.Introduce();
+            Console.WriteLine();
+        }
+    }
+
+    // Задание 3
+    static void Task3()
+    {
+        List<Person> people = CreatePeople();
+
+        Console.Write("Введите имя для поиска: ");
+        string search = Console.ReadLine();
+
+        Person found = null;
+
+        foreach (Person person in people)
+        {
+            if (person.Name.Equals(
+                search,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                found = person;
+                break;
+            }
+        }
+
+        if (found != null)
+        {
+            Console.WriteLine("Человек найден:");
+            found.Introduce();
+        }
+        else
+        {
+            Console.WriteLine("Человек не найден.");
+        }
+    }
+    static void Task4()
+    {
+        List<string> names = new List<string>
+        {
+            "Alex",
+            "Bob",
+            "Anna",
+            "Kate"
+        };
+
+        Console.WriteLine("До удаления:");
+
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+
+        names.Remove("Bob");
+
+        Console.WriteLine();
+        Console.WriteLine("После удаления:");
+
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+    }
+
+    static void Task5()
+    {
+        List<Person> people = CreatePeople();
+
+        int count = 0;
+
+        foreach (Person person in people)
+        {
+            if (person.Age >= 18)
+                count++;
+        }
+
+        Console.WriteLine(
+            "Совершеннолетних: " + count
+        );
+    }
+
+    static void Task6()
+    {
+        List<Person> people = CreatePeople();
+        List<Person> adults = new List<Person>();
+
+        foreach (Person person in people)
+        {
+            if (person.Age >= 18)
+            {
+                adults.Add(person);
+            }
+        }
+
+        Console.WriteLine("Совершеннолетние:");
+
+        foreach (Person person in adults)
+        {
+            Console.WriteLine(
+                person.Name + " — " + person.Age
+            );
+        }
+    }
+
+    static void Task7()
+    {
+        List<int> numbers = new List<int>
+        {
+            5, 2, 8, 1, 9, 3
+        };
+
+        Console.WriteLine("До сортировки:");
+
+        PrintList(numbers);
+
+        for (int i = 0; i < numbers.Count - 1; i++)
+        {
+            for (int j = 0; j < numbers.Count - 1 - i; j++)
+            {
+                if (numbers[j] > numbers[j + 1])
+                {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+
+        Console.WriteLine("После сортировки:");
+
+        PrintList(numbers);
+    }
+
+    static void Task8()
+    {
+        List<Contact> contacts = new List<Contact>();
+
+        contacts.Add(new Contact
+        {
+            Name = "Alex",
+            Phone = "111-111"
+        });
+
+        contacts.Add(new Contact
+        {
+            Name = "Bob",
+            Phone = "222-222"
+        });
+
+        contacts.Add(new Contact
+        {
+            Name = "Anna",
+            Phone = "333-333"
+        });
+
+        Console.WriteLine("Записная книжка:");
+
+        foreach (Contact contact in contacts)
+        {
+            Console.WriteLine(
+                contact.Name + ": " + contact.Phone
+            );
+        }
+    }
+
+    static void BonusDictionary()
+    {
+        Dictionary<string, string> phoneBook =
+            new Dictionary<string, string>();
+
+        phoneBook["Alex"] = "111-111";
+        phoneBook["Bob"] = "222-222";
+        phoneBook["Anna"] = "333-333";
+
+        Console.Write("Введите имя: ");
+        string name = Console.ReadLine();
+
+        if (phoneBook.ContainsKey(name))
+        {
+            Console.WriteLine(
+                "Телефон: " + phoneBook[name]
+            );
+        }
+        else
+        {
+            Console.WriteLine("Контакт не найден.");
+        }
+    }
+
+    static List<Person> CreatePeople()
+    {
+        return new List<Person>
+        {
+            new Person
+            {
+                Name = "Alex",
+                Age = 20
+            },
+
+            new Person
+            {
+                Name = "Bob",
+                Age = 17
+            },
+
+            new Person
+            {
+                Name = "Anna",
+                Age = 25
+            },
+
+            new Person
+            {
+                Name = "Kate",
+                Age = 16
+            }
+        };
+    }
+
+    static void PrintList(List<int> numbers)
+    {
+        foreach (int number in numbers)
+        {
+            Console.Write(number + " ");
+        }
+
+        Console.WriteLine();
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// КЛАСС CONTACT
+// ============================================================
+
+class Contact
+{
+    public string Name;
+    public string Phone;
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 7 — РАБОТА С ФАЙЛАМИ
+// ============================================================
+
+class Lesson7Files
+{
+    private const string FileName = "data.txt";
+
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 7 — РАБОТА С ФАЙЛАМИ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Записать текст в файл");
+            Console.WriteLine("2. Прочитать файл");
+            Console.WriteLine("3. Записать несколько строк");
+            Console.WriteLine("4. Прочитать строки");
+            Console.WriteLine("5. Перезаписать файл");
+            Console.WriteLine("6. Добавить текст в файл");
+            Console.WriteLine("7. Проверить существование файла");
+            Console.WriteLine("8. Сохранить числа");
+            Console.WriteLine("9. Бонус — простой текстовый редактор");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите задание: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    Task1();
+                    break;
+
+                case "2":
+                    Task2();
+                    break;
+
+                case "3":
+                    Task3();
+                    break;
+
+                case "4":
+                    Task4();
+                    break;
+
+                case "5":
+                    Task5();
+                    break;
+
+                case "6":
+                    Task6();
+                    break;
+
+                case "7":
+                    Task7();
+                    break;
+
+                case "8":
+                    Task8();
+                    break;
+
+                case "9":
+                    BonusEditor();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void Task1()
+    {
+        Console.Write("Введите текст: ");
+        string text = Console.ReadLine();
+
+        File.WriteAllText(FileName, text);
+
+        Console.WriteLine(
+            "Текст записан в " + FileName
+        );
+    }
+
+    static void Task2()
+    {
+        if (!File.Exists(FileName))
+        {
+            Console.WriteLine("Файл не существует.");
+            return;
+        }
+
+        string text = File.ReadAllText(FileName);
+
+        Console.WriteLine("Содержимое файла:");
+        Console.WriteLine(text);
+    }
+
+    static void Task3()
+    {
+        List<string> lines = new List<string>();
+
+        Console.WriteLine(
+            "Введите строки. Пустая строка завершает ввод."
+        );
+
+        while (true)
+        {
+            string line = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(line))
+                break;
+
+            lines.Add(line);
+        }
+
+        File.WriteAllLines(FileName, lines);
+
+        Console.WriteLine("Строки сохранены.");
+    }
+
+    static void Task4()
+    {
+        if (!File.Exists(FileName))
+        {
+            Console.WriteLine("Файл не существует.");
+            return;
+        }
+
+        string[] lines = File.ReadAllLines(FileName);
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            Console.WriteLine(
+                (i + 1) + ". " + lines[i]
+            );
+        }
+    }
+
+    static void Task5()
+    {
+        Console.Write("Введите новый текст: ");
+        string text = Console.ReadLine();
+
+        File.WriteAllText(FileName, text);
+
+        Console.WriteLine("Файл перезаписан.");
+    }
+
+    static void Task6()
+    {
+        Console.Write("Введите текст для добавления: ");
+        string text = Console.ReadLine();
+
+        File.AppendAllText(
+            FileName,
+            Environment.NewLine + text
+        );
+
+        Console.WriteLine("Текст добавлен.");
+    }
+
+    static void Task7()
+    {
+        if (File.Exists(FileName))
+            Console.WriteLine("Файл существует.");
+        else
+            Console.WriteLine("Файл не существует.");
+    }
+
+    static void Task8()
+    {
+        string numbersFile = "numbers.txt";
+
+        List<string> numbers = new List<string>();
+
+        for (int i = 1; i <= 10; i++)
+        {
+            numbers.Add(i.ToString());
+        }
+
+        File.WriteAllLines(numbersFile, numbers);
+
+        Console.WriteLine(
+            "Числа сохранены в " + numbersFile
+        );
+    }
+
+    // Бонус
+    static void BonusEditor()
+    {
+        Console.WriteLine("ПРОСТОЙ ТЕКСТОВЫЙ РЕДАКТОР");
+        Console.WriteLine();
+
+        Console.WriteLine(
+            "Введите текст. Пустая строка завершает ввод."
+        );
+
+        List<string> lines = new List<string>();
+
+        while (true)
+        {
+            string line = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(line))
+                break;
+
+            lines.Add(line);
+        }
+
+        string editorFile = "editor.txt";
+
+        File.WriteAllLines(editorFile, lines);
+
+        Console.WriteLine();
+        Console.WriteLine(
+            "Документ сохранён: " + editorFile
+        );
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+
+// ============================================================
+// ЗАНЯТИЕ 8 — ФИНАЛЬНЫЙ ПРОЕКТ
+// ============================================================
+
+class Lesson8FinalProject
+{
+    private static List<TodoTask> tasks =
+        new List<TodoTask>();
+
+    private const string FileName = "tasks.txt";
+
+    public static void Run()
+    {
+        while (true)
+        {
+            Console.WriteLine("======================================");
+            Console.WriteLine("ЗАНЯТИЕ 8 — ФИНАЛЬНЫЙ ПРОЕКТ");
+            Console.WriteLine("======================================");
+
+            Console.WriteLine("1. Создать задачу");
+            Console.WriteLine("2. Показать задачи");
+            Console.WriteLine("3. Отметить задачу выполненной");
+            Console.WriteLine("4. Сохранить задачи");
+            Console.WriteLine("5. Загрузить задачи");
+            Console.WriteLine("6. Удалить задачу");
+            Console.WriteLine("7. Статистика");
+            Console.WriteLine("8. Полный запуск Todo Manager");
+            Console.WriteLine("9. Бонус — категории");
+            Console.WriteLine("10. Бонус — сортировка задач");
+            Console.WriteLine("0. Назад");
+
+            Console.Write("Выберите действие: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    AddTask();
+                    break;
+
+                case "2":
+                    ShowTasks();
+                    break;
+
+                case "3":
+                    CompleteTask();
+                    break;
+
+                case "4":
+                    SaveTasks();
+                    break;
+
+                case "5":
+                    LoadTasks();
+                    break;
+
+                case "6":
+                    DeleteTask();
+                    break;
+
+                case "7":
+                    ShowStatistics();
+                    break;
+
+                case "8":
+                    FullTodoManager();
+                    break;
+
+                case "9":
+                    Categories();
+                    break;
+
+                case "10":
+                    SortTasks();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+            Console.Clear();
+        }
+    }
+
+    static void AddTask()
+    {
+        Console.Write("Введите название задачи: ");
+        string title = Console.ReadLine();
+
+        TodoTask task = new TodoTask();
+
+        task.Title = title;
+        task.IsCompleted = false;
+
+        tasks.Add(task);
+
+        Console.WriteLine("Задача добавлена.");
+    }
+
+    static void ShowTasks()
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Список задач пуст.");
+            return;
+        }
+
+        Console.WriteLine("СПИСОК ЗАДАЧ:");
+        Console.WriteLine();
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            string status =
+                tasks[i].IsCompleted
+                    ? "[X]"
+                    : "[ ]";
+
+            Console.WriteLine(
+                (i + 1) + ". " +
+                status + " " +
+                tasks[i].Title
+            );
+        }
+    }
+
+    static void CompleteTask()
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Список задач пуст.");
+            return;
+        }
+
+        ShowTasks();
+
+        Console.Write("Номер выполненной задачи: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (number < 1 || number > tasks.Count)
+        {
+            Console.WriteLine("Неверный номер.");
+            return;
+        }
+
+        tasks[number - 1].IsCompleted = true;
+
+        Console.WriteLine("Задача выполнена.");
+    }
+
+    static void SaveTasks()
+    {
+        List<string> lines = new List<string>();
+
+        foreach (TodoTask task in tasks)
+        {
+            string line =
+                task.Title +
+                "|" +
+                task.IsCompleted;
+
+            lines.Add(line);
+        }
+
+        File.WriteAllLines(FileName, lines);
+
+        Console.WriteLine(
+            "Задачи сохранены в " + FileName
+        );
+    }
+
+    // Задание 5
+    static void LoadTasks()
+    {
+        if (!File.Exists(FileName))
+        {
+            Console.WriteLine("Файл задач не найден.");
+            return;
+        }
+
+        tasks.Clear();
+
+        string[] lines =
+            File.ReadAllLines(FileName);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split('|');
+
+            if (parts.Length >= 2)
+            {
+                TodoTask task = new TodoTask();
+
+                task.Title = parts[0];
+                task.IsCompleted =
+                    bool.Parse(parts[1]);
+
+                tasks.Add(task);
+            }
+        }
+
+        Console.WriteLine(
+            "Загружено задач: " + tasks.Count
+        );
+    }
+
+    static void DeleteTask()
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Список задач пуст.");
+            return;
+        }
+
+        ShowTasks();
+
+        Console.Write("Номер задачи для удаления: ");
+        int number = int.Parse(Console.ReadLine());
+
+        if (number < 1 || number > tasks.Count)
+        {
+            Console.WriteLine("Неверный номер.");
+            return;
+        }
+
+        tasks.RemoveAt(number - 1);
+
+        Console.WriteLine("Задача удалена.");
+    }
+
+    static void ShowStatistics()
+    {
+        int completed = 0;
+        int notCompleted = 0;
+
+        foreach (TodoTask task in tasks)
+        {
+            if (task.IsCompleted)
+                completed++;
+            else
+                notCompleted++;
+        }
+
+        Console.WriteLine("Всего задач: " + tasks.Count);
+        Console.WriteLine(
+            "Выполнено: " + completed
+        );
+        Console.WriteLine(
+            "Не выполнено: " + notCompleted
+        );
+    }
+
+    static void FullTodoManager()
+    {
+        while (true)
+        {
+            Console.Clear();
+
+            Console.WriteLine("================================");
+            Console.WriteLine("        TODO MANAGER");
+            Console.WriteLine("================================");
+
+            Console.WriteLine("1. Добавить задачу");
+            Console.WriteLine("2. Показать задачи");
+            Console.WriteLine("3. Выполнить задачу");
+            Console.WriteLine("4. Удалить задачу");
+            Console.WriteLine("5. Сохранить");
+            Console.WriteLine("6. Загрузить");
+            Console.WriteLine("7. Статистика");
+            Console.WriteLine("0. Выход");
+
+            Console.Write("Выберите действие: ");
+            string choice = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                    AddTask();
+                    break;
+
+                case "2":
+                    ShowTasks();
+                    break;
+
+                case "3":
+                    CompleteTask();
+                    break;
+
+                case "4":
+                    DeleteTask();
+                    break;
+
+                case "5":
+                    SaveTasks();
+                    break;
+
+                case "6":
+                    LoadTasks();
+                    break;
+
+                case "7":
+                    ShowStatistics();
+                    break;
+
+                case "0":
+                    return;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Pause();
+        }
+    }
+
+    static void Categories()
+    {
+        List<TodoTask> categoryTasks =
+            new List<TodoTask>();
+
+        categoryTasks.Add(
+            new TodoTask
+            {
+                Title = "Выучить C#",
+                IsCompleted = false,
+                Category = "Учёба"
+            }
+        );
+
+        categoryTasks.Add(
+            new TodoTask
+            {
+                Title = "Купить продукты",
+                IsCompleted = true,
+                Category = "Дом"
+            }
+        );
+
+        categoryTasks.Add(
+            new TodoTask
+            {
+                Title = "Сделать проект",
+                IsCompleted = false,
+                Category = "Работа"
+            }
+        );
+
+        Console.WriteLine("Задачи по категориям:");
+
+        foreach (TodoTask task in categoryTasks)
+        {
+            Console.WriteLine(
+                "[" + task.Category + "] " +
+                task.Title
+            );
+        }
+
+        List<string> lines =
+            new List<string>();
+
+        foreach (TodoTask task in categoryTasks)
+        {
+            lines.Add(
+                task.Title +
+                "|" +
+                task.IsCompleted +
+                "|" +
+                task.Category
+            );
+        }
+
+        File.WriteAllLines(
+            "tasks_categories.txt",
+            lines
+        );
+
+        Console.WriteLine();
+        Console.WriteLine(
+            "Задачи сохранены в tasks_categories.txt"
+        );
+    }
+
+    // Бонус — сортировка
+    static void SortTasks()
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("Список задач пуст.");
+            return;
+        }
+
+        tasks.Sort(
+            delegate (TodoTask a, TodoTask b)
+            {
+                return string.Compare(
+                    a.Title,
+                    b.Title,
+                    StringComparison.OrdinalIgnoreCase
+                );
+            }
+        );
+
+        Console.WriteLine("Задачи отсортированы:");
+        ShowTasks();
+    }
+
+    static void Pause()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Нажмите Enter...");
+        Console.ReadLine();
+    }
+}
+
+class TodoTask
+{
+    public string Title;
+    public bool IsCompleted;
+    public string Category;
+}
+```
